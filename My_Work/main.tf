@@ -16,3 +16,12 @@ resource "azurerm_resource_group" "Rg_Babul" {
   name     = "Rg_Babul"
   location = "West Europe"
 }
+
+resource "azurerm_storage_account" "Stgbabul" {
+  name                     = "stgbabul"
+  resource_group_name      = azurerm_resource_group.Rg_Babul.name
+  location                 = azurerm_resource_group.Rg_Babul.location
+  account_tier             = "Standard"
+  account_replication_type = "GRS"
+
+}
